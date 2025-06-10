@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head>…</head>
+<body>
+  <div class="app-container">
+    <aside id="sidebar">
+      <button id="new-chat-btn">+ New Chat</button>
+      <ul id="chat-list"></ul>
+      <button onclick="logout()">Logout</button>
+    </aside>
+
+    <main>
+      <header><h1>🧠 Arnav GPT</h1></header>
+      <div id="chat-box" class="chat-box"></div>
+      <div class="input-container">
+        <input type="text" id="user-input" /><button onclick="sendMessage()">➤</button>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="supabase.js"></script>
+  <script type="module" src="auth.js"></script>
+  <script type="module" src="script.js"></script>
+</body></html>

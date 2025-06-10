@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><title>Login</title></head>
+<body>
+  <h2>Login / Signup</h2>
+  <div id="step1">
+    <input id="email" type="email" placeholder="Your email"/>
+    <button onclick="step1()">Send OTP</button>
+  </div>
+  <div id="step2" style="display:none">
+    <input id="otp" type="text" placeholder="Enter OTP"/>
+    <button onclick="step2()">Verify OTP</button>
+  </div>
+  <p id="info"></p>
+
+  <script type="module">
+    import { sendOtp, verifyOtp } from './auth.js'
+    async function step1() {
+      const email = document.getElementById('email').value
+      if (!email) return
+      const otp = await sendOtp(email)
+      document.getElementById('info').innerText = `OTP (for testing): ${otp}`
+      document.getElementById('step1').style.display = 'none'
+      document.getElementById('step2').style.display = 'block'
+    }
+    async function step2() {
+      const email = document.getElementById('email').value
+      const otp = document.getElementById('otp').value
+      const ok = await verifyOtp(email, otp)
+      if (ok) { window.location = 'index.html' }
+      else document.getElementById('info').innerText = 'Invalid OTP'
+    }
+  </script>
+</body>
+</html>

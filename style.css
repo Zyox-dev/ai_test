@@ -1,0 +1,6 @@
+.app-container { display: flex; }
+aside { width: 200px; padding: 10px; background: #20232a; color: #fff; }
+#chat-list { list-style: none; padding: 0; }
+#chat-list li { padding: 6px; cursor: pointer; }
+#chat-list li.active { background: #3e4047; }
+main { flex: 1; display: flex; flex-direction: column; }
